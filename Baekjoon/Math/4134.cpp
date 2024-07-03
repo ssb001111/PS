@@ -28,11 +28,6 @@ int main() {
         int end = 0;
         int found = 0;
 
-        if (input == 0 or input == 1 or input == 2){
-            found = 1;
-            pr_arr[i] = 2;
-        }
-
         while (!found){
             while (!end){
                 for (long long j = 3; j <= sqrt(starting_no); j += 2){ // starting_no가 소수인지 판별
@@ -43,6 +38,9 @@ int main() {
                 break;
             }
             if (end == 0){ // starting_no가 소수이다
+                if (starting_no == 1){
+                    starting_no = 2;
+                }
                 pr_arr[i] = starting_no;
                 found = 1;
             }
