@@ -1,22 +1,23 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
- 
-int preorder[1001];
-int inorder[1001];
+
 string str = "";
+vector<int> preorder;
+vector<int> inorder;
  
-void solution(int root, int s, int e){
+void func(int root, int s, int e){
 
     for(int i = s ; i < e; i++){
 
         if(inorder[i] == preorder[root]){
 
-            solution(root + 1, s, i); // left sub tree
+            func(root + 1, s, i); // left
 
-            solution(root + 1 + i - s, i + 1, e); // right sub tree
+            func(root + 1 + i - s, i + 1, e); // right
 
             str += to_string(preorder[root]);
             str += " ";
@@ -39,15 +40,18 @@ int main() {
         int n;
         cin >> n;
 
-        for(int i=0; i<n; i++){
-            cin >> preorder[i];
+        preorder = vector<int>(n);
+        inorder = vector<int>(n);
+
+        for(int k=0; k<n; k++){
+            cin >> preorder[k];
         }
 
-        for(int i=0; i<n; i++){
-            cin >> inorder[i];
+        for(int k=0; k<n; k++){
+            cin >> inorder[k];
         }
 
-        solution(0, 0, n);
+        func(0, 0, n);
         st_arr[i] = str;
     }
 
