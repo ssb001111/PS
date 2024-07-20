@@ -29,10 +29,8 @@ int main() {
 
     for (int i = 0; i < n; i++){
         if (v[i].second >= s){ // 회의들의 시작 시간이 s보다 크거나 같은지 확인
-            if (v[i].second >= s){
-                ans++;
-                s = v[i].first; // 그 회의의 완료 시간으로 새 s를 설정
-            }
+            ans++;
+            s = v[i].first; // 그 회의의 완료 시간으로 새 s를 설정
         }
     }
 
