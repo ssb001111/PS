@@ -25,6 +25,7 @@ int main() {
     int num_y = first;
 
     if (n != 1){
+        
         int last = n-1;
         int start = 2;
 
